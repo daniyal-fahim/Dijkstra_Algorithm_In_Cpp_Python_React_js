@@ -1,0 +1,11 @@
+git status
+git add .
+git status
+git commit -m " ADDING A RESET BUTTON AND ADDING THE .PY FILE AND THE CPP FILE"
+git status
+git push -u origin main
+
+
+git remote set-url origin 
+
+git pull origin main

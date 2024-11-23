@@ -11,47 +11,52 @@ const DijkstraApp = () => {
 
   // Initialize the adjacency list whenever the number of vertices changes
   useEffect(() => {
+    if (vertices === 0) return; // Prevent graph initialization when vertices are reset
+  
     const newGraph = {};
     for (let i = 0; i < vertices; i++) {
       newGraph[i] = [];
     }
     setGraph(newGraph);
-    setEdges([]); // Reset edges to avoid duplicates on re-render
-    setShortestPaths([]); // Reset paths
-
-    // Add hardcoded edges
-    addEdge(0, 1, 2);
-    addEdge(0, 2, 6);
-    addEdge(1, 3, 5);
-    addEdge(2, 3, 8);
-    addEdge(3, 4, 10);
-    addEdge(3, 5, 15);
-    addEdge(4, 6, 2);
-    addEdge(5, 6, 6);
-    addEdge(0, 7, 1);
-    addEdge(1, 8, 3);
-    addEdge(7, 9, 4);
-    addEdge(8, 10, 2);
-    addEdge(9, 11, 6);
-    addEdge(10, 12, 7);
-    addEdge(12, 13, 1);
-    addEdge(13, 14, 2);
-    addEdge(14, 15, 3);
-    addEdge(15, 16, 4);
-    addEdge(16, 17, 5);
-    addEdge(17, 18, 6);
-    addEdge(18, 19, 7);
-    addEdge(19, 20, 8);
-    addEdge(20, 21, 9);
-    addEdge(21, 22, 10);
-    addEdge(22, 23, 11);
-    addEdge(23, 24, 12);
-    addEdge(24, 25, 13);
-    addEdge(25, 26, 14);
-    addEdge(26, 27, 15);
-    addEdge(27, 28, 16);
-    addEdge(28, 29, 17);
+    setEdges([]); // Reset edges
+    setShortestPaths([]); // Clear shortest paths
+  
+    // Add hardcoded edges if vertices are initialized
+    if (vertices >= 30) {
+      addEdge(0, 1, 2);
+      addEdge(0, 2, 6);
+      addEdge(1, 3, 5);
+      addEdge(2, 3, 8);
+      addEdge(3, 4, 10);
+      addEdge(3, 5, 15);
+      addEdge(4, 6, 2);
+      addEdge(5, 6, 6);
+      addEdge(0, 7, 1);
+      addEdge(1, 8, 3);
+      addEdge(7, 9, 4);
+      addEdge(8, 10, 2);
+      addEdge(9, 11, 6);
+      addEdge(10, 12, 7);
+      addEdge(12, 13, 1);
+      addEdge(13, 14, 2);
+      addEdge(14, 15, 3);
+      addEdge(15, 16, 4);
+      addEdge(16, 17, 5);
+      addEdge(17, 18, 6);
+      addEdge(18, 19, 7);
+      addEdge(19, 20, 8);
+      addEdge(20, 21, 9);
+      addEdge(21, 22, 10);
+      addEdge(22, 23, 11);
+      addEdge(23, 24, 12);
+      addEdge(24, 25, 13);
+      addEdge(25, 26, 14);
+      addEdge(26, 27, 15);
+      addEdge(27, 28, 16);
+      addEdge(28, 29, 17);
+    }
   }, [vertices]);
+  
 
   // Function to add an edge
   const addEdge = (from, to, weight) => {
@@ -243,7 +248,7 @@ shortestPaths.forEach((path, idx) => {
             .attr("y2", toPos.y)
             .style("stroke", "green")
             .style("stroke-width", 3);
-        }, (idx * nodes.length + i) * 2000); // Scaled delay for each path segment
+        }, (idx * nodes.length + i) * 500); // Scaled delay for each path segment
       } else {
         console.error(`Missing position for nodes: ${from} or ${to}`);
       }
@@ -252,15 +257,45 @@ shortestPaths.forEach((path, idx) => {
 });
 
   };
+// const resetGraph = () => {
+    
+//     setEdgeInput({ from: "", to: "", weight: "" }); // Reset edge input
+//     setGraph({}); // Reset graph to empty
+//     setEdges([]); // Reset edges list
+//     setShortestPaths([]);
+//     setVertices(0); // Reset vertices count
+//     }
+
+const resetGraph = () => {
+  // Reset state variables
+  setEdgeInput({ from: "", to: "", weight: "" }); 
+  setGraph({}); 
+  setEdges([]); 
+  setShortestPaths([]); 
+  setVertices(0);
+
+  // Clear SVG elements (graph rendering)
+  const svgContainer = document.querySelector("svg");
+  if (svgContainer) {
+    while (svgContainer.firstChild) {
+      svgContainer.removeChild(svgContainer.firstChild);
+    }
+  }
+
+  // Log reset for debugging
+  console.log("Graph has been reset.");
+};
 
   // Run Dijkstra and render the graph
   useEffect(() => {
     renderGraph();
   }, [graph, edges, vertices, shortestPaths]);
 
+
   return (
     <div>
       <h2>Dijkstra's Algorithm Visualizer</h2>
+      <span> Set Number of Vertices</span>
       <div>
         <input
           type="number"
@@ -268,7 +303,6 @@ shortestPaths.forEach((path, idx) => {
           onChange={(e) => setVertices(parseInt(e.target.value))}
           min={2}
         />
-        <span> Set Number of Vertices</span>
       </div>
       <div>
         <input
@@ -304,6 +338,9 @@ shortestPaths.forEach((path, idx) => {
         >
           Add Edge
         </button>
+      </div>
+      <div>        
+        <button onClick={() => resetGraph()}>Reset Dijkstra Graph</button>
       </div>
       <div>
         <button onClick={() => dijkstra(startVertex)}>Run Dijkstra</button>
