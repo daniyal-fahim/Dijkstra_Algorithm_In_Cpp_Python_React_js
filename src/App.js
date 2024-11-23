@@ -1,23 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import DijkstraVisualizer from "./dijkstra3.jsx";
+//dijkstra5.jsx\]
+//current real working code in dijkstra 3
+//NOW USING 222
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Dijkstra's Algorithm Visualization</h1>
+      <DijkstraVisualizer />
     </div>
   );
 }
