@@ -41,7 +41,9 @@ To run the React-based visualization locally:
 ---
 
 ### C++ Implementation  
+
 src/dijkstra_cpp_implementation.cpp
+
 To execute the C++ version of Dijkstra's Algorithm:  
 1. Navigate to the `src` directory:  
    ```bash
@@ -56,8 +58,10 @@ To execute the C++ version of Dijkstra's Algorithm:
 ---
 
 ### Python Implementation  
-To execute the Python version of Dijkstra's Algorithm:  
+
 src/dijkstra_python_implementation.py
+
+To execute the Python version of Dijkstra's Algorithm:  
 1. Navigate to the `src` directory:  
    ```bash
    cd src
