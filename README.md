@@ -1,71 +1,105 @@
-# Getting Started with Create React App
+# Dijkstra's Algorithm Visualization - README
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About the Project  
+This project is a comprehensive visualization tool for **Dijkstra's Algorithm** implemented in **React**, along with **C++** and **Python** implementations. It demonstrates how Dijkstra's Algorithm works for finding the shortest path in a graph while providing an interactive user interface for better understanding. The tool supports dynamic edge addition, real-time visualization, and highlights shortest paths step-by-step.
 
-## Available Scripts
+### Key Features:
+- **React Visualization**: An intuitive, interactive graphical representation of Dijkstra's Algorithm using D3.js.
+- **Cross-Language Support**: Includes implementations in both **C++** and **Python** for performance comparison and learning.
+- **Dynamic Graph Building**: Add vertices, edges, and weights directly through the UI and visualize the changes in real time.
+- **Pathfinding Step-by-Step**: See the algorithm's progression and shortest path discovery with visual feedback.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Live Demo 🌐
+You can try the live visualization of **Dijkstra's Algorithm** here:  
+🔗 [Dijkstra Algorithm Visualization](https://dijkstra-visualization-sandy.vercel.app/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation and Usage Instructions  
 
-### `npm test`
+### React Visualization  
+To run the React-based visualization locally:  
+1. Clone this repository:  
+   ```bash
+   git clone https://github.com/your-username/dijkstra-visualization.git
+   cd dijkstra-visualization
+   ```
+2. Install the dependencies:  
+   ```bash
+   npm install
+   ```
+3. Run the project:  
+   ```bash
+   npm start
+   ```
+4. Open your browser and go to `http://localhost:3000` to access the application.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> **Note**: Only `dijkstra4.jsx` is used for the primary visualization. Other components are included as temporary modules to demonstrate debugging and handling of various challenges during development.  
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### C++ Implementation  
+src/dijkstra_cpp_implementation.cpp
+To execute the C++ version of Dijkstra's Algorithm:  
+1. Navigate to the `src` directory:  
+   ```bash
+   cd src
+   ```
+2. Compile and run the file using `g++`:  
+   ```bash
+   g++ dijkstra_cpp_implementation.cpp -o dijkstra
+   ./dijkstra
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Python Implementation  
+To execute the Python version of Dijkstra's Algorithm:  
+src/dijkstra_python_implementation.py
+1. Navigate to the `src` directory:  
+   ```bash
+   cd src
+   ```
+2. Run the Python file with the Python interpreter:  
+   ```bash
+   python dijkstra_python_implementation.py
+   ```
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## About Dijkstra's Algorithm  
+Dijkstra's Algorithm is one of the most widely used algorithms in graph theory for solving the **single-source shortest path problem**. It operates on a weighted graph and finds the shortest path from a source vertex to all other vertices. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Algorithm Highlights:  
+1. **Initialization**: Start by setting the source vertex distance to `0` and all other vertices to infinity.  
+2. **Relaxation**: Iteratively update the shortest path for each vertex by checking all adjacent vertices.  
+3. **No Priority Queue**: I have used my own logic instead of min-priority queue to always process the vertex with the smallest known distance.  
+4. **Output**: The shortest path from the source to each vertex is generated once the algorithm completes.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Real-World Applications:  
+- **Routing and Navigation**: GPS systems use Dijkstra to calculate optimal routes.  
+- **Network Optimization**: Used in network routing protocols like OSPF (Open Shortest Path First).  
+- **Game Development**: Pathfinding for AI characters in games.  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## How This Project Helps  
+- Visual learners can **see** how Dijkstra's Algorithm operates in real-time.  
+- Developers can compare **React**, **C++**, and **Python** implementations to understand differences in programming styles and performance.  
+- Aids in debugging and problem-solving during the implementation of complex graph algorithms.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contributing  
+Contributions are welcome! If you want to improve the project or add new features, feel free to fork the repository and submit a pull request.  
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## License  
+This project is open-source and available for all.
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# DijkstraVisualization
+Enjoy exploring the world of Dijkstra's Algorithm! 🚀
